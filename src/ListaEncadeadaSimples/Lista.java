@@ -48,44 +48,48 @@ public class Lista {
 	public void adiciona(int posicao, Nodo no) {
 		if(this.getQtd()==0){
 			this.addLast(no);
+		}
+		else if(posicao==this.getQtd()-1){
+			this.addLast(no);
 		}else {
 			int cont = 1;
 			Nodo temp = this.getFirst();
 			while(true) {
-				if(posicao==this.getQtd()-1){
-					this.addLast(no);
-					break;
-				}
-				else{
-					while(cont<=this.getQtd()-1){
-						if (cont==posicao){
-							no.setNext(temp);
-							temp = no;
-							cont++;
-							continue;
-						}
-						else if(cont>posicao){
-							temp.setNext(temp);
-							temp = temp.getNext();
-							cont++;
-							continue;
-							//temp = temp.getNext();
-							//cont++;
-							//continue;
-						}
+				//if(posicao==this.getQtd()-1){
+					//this.addLast(no);
+					//break;
+				//}
+				//else{
+				while(temp!=null){
+					if (cont==posicao){
+						no.setNext(temp);
+						temp = no;
 						cont++;
+						continue;
 					}
-					this.last.setNext(null);
-					this.last = temp;
-					break;
+					else if(cont>posicao){
+						temp.setNext(temp);
+						temp = temp.getNext();
+						cont++;
+						//continue;
+						//temp = temp.getNext();
+						//cont++;
+						//continue;
+					}
+					cont++;
 				}
-			}this.setQtd(this.getQtd()+1);
-		}
+				this.last.setNext(null);
+				this.last = temp;
+				this.setQtd(this.getQtd()+1);
+				break;
+			}
+		}//this.setQtd(this.getQtd()+1);
 	}
 	
 	public void remove(Nodo no) {
 		if(this.first.equals(no)) {
 			this.first = this.first.getNext();
+			this.setQtd(this.getQtd()-1);
 		}else {
 			Nodo element = this.first; 
 			while(element!=null) {
@@ -96,6 +100,7 @@ public class Lista {
 				}
 				element = element.getNext();
 			}
+			this.setQtd(this.getQtd()-1);
 		}
 	}
 	public boolean search(Nodo no) {

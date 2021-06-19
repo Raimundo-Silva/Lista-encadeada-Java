@@ -12,15 +12,22 @@ public class TestNodo {
 		lst.addLast(no3);
 		lst.addLast(new Nodo(25));
 		lst.addLast(new Nodo(17));
+		System.out.println("A quantidade de elementos da lista é: "+lst.getQtd());
 		lst.print();
+		System.out.print("\n");
+		System.out.println("");
 		lst.remove(new Nodo(15));
 		lst.remove(new Nodo(25));
 		lst.print();
-		lst.adiciona(1, new Nodo(30));
+		System.out.print("\n");
+		//lst.adiciona(1, new Nodo(30));
 		lst.print();
-		System.out.println("");
+		System.out.print("\n");
 		lst.print();
+		System.out.print("\n");
 		lst.search(new Nodo(7));
-		
+		lst.print();
+		System.out.print("\n");
+		System.out.println("A quantidade de elementos da lista é: "+lst.getQtd());
 	}
 }
